@@ -70,7 +70,7 @@ jQuery(function($) {
         $('.modal-backdrop').remove();
         setTimeout(() => {
 			$('#modal1').modal('show');
-		}, 15000)
+		}, 7000)
 
 	});
 	// Window Scroll
