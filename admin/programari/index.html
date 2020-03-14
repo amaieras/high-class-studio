@@ -1,0 +1,92 @@
+<div class="col-md-12" data-ng-init="getAppointments()" style="margin-top: 200px; z-index: 2; ">
+
+    <table class="table table-bordered table-inverse" ng-controller="paginationCtrl">
+    <thead>
+    <tr>
+
+        <th>#</th>
+        <form>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                    <input type="text" class="form-control" placeholder="Cauta programare dupa nume sau email" ng-model="nameOrEmail" >
+                </div>
+            </div>
+        </form>
+        <td>
+            <a href="" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+                Nume
+                <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+                <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+            </a>
+        </td>
+        <th>Email</th>
+        <th>Telefon</th>
+        <!--<th>Data propusa</th>-->
+        <!--<th>Done</th>-->
+        <td>
+            <a href="" ng-click="sortType = 'dateAdded'; sortReverse = !sortReverse">
+                Data efectuarii programarii
+                <!--<span ng-show="sortType == 'dateAdded' && !sortReverse" class="fa fa-caret-down"></span>-->
+                <!--<span ng-show="sortType == 'dateAdded' && sortReverse" class="fa fa-caret-up"></span>-->
+            </a>
+        </td>
+    </tr>
+    </thead>
+    <tfoot>
+    <td colspan="8">
+        <div class="pagination pull-right">
+            <ul>
+                <li ng-class="{disabled: currentPage == 0}">
+                    <a href ng-click="prevPage()"><span aria-hidden="true">&laquo;</span> Prev</a>
+                </li>
+                <li ng-repeat="n in range(pagedItems.length, currentPage, currentPage + gap)"
+                    ng-class="{active: n == currentPage}"
+                    ng-click="setPage()">
+                    <a href ng-bind="n + 1">1</a>
+                </li>
+                <li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+                    <a href ng-click="nextPage()">Next <span aria-hidden="true">&raquo;</span></a>
+                </li>
+            </ul>
+        </div>
+    </td>
+    </tfoot>
+    <tbody>
+    <tr ng-repeat="appointment in pagedItems[currentPage] | orderBy :'-dateAdded' | filter:nameOrEmail">
+        <th scope="row">{{$index + 1}}</th>
+        <td>{{appointment.name + ' ' + appointment.firstname}}</td>
+        <td>{{appointment.email}}</td>
+        <td>{{appointment.phone}}</td>
+        <!--<td>{{appointment.date}}</td>-->
+        <!--<td>{{appointment.done}}</td>-->
+        <!--<td class="isDoneTd">-->
+            <!--<div class="doneInput" ng-show="appointment.done">-->
+                <!--<input type="checkbox" name="checkboxSuccess" id="checkbox-success" autocomplete="off" checked="" ng-model="checkboxSuccess" ng-change="changeDoneSuccess()">-->
+                <!--<label for="checkbox-success" id="fancy-checkbox-success-custom-icons_in_02" class="[ btn btn-success ] isDoneBtn">-->
+                    <!--<span class="[ glyphicon glyphicon-ok ]"></span>-->
+                <!--</label>-->
+            <!--</div>-->
+            <!--<div class="doneInput" ng-show="!appointment.done">-->
+                <!--<input type="checkbox" name="checkboxDanger" id="checkbox-danger" autocomplete="off" checked="" ng-model="checkboxDanger" ng-change="changeDoneDanger()">-->
+                <!--<label for="checkbox-danger" id="fancy-checkbox-danger-custom-icons_in_02" class="[ btn btn-danger ] isDoneBtn">-->
+                    <!--<span class="[ glyphicon glyphicon-remove ]"></span>-->
+                <!--</label>-->
+            <!--</div>-->
+        <!--</td>-->
+        <td>{{appointment.dateAdded | date:'dd-MMM-yyyy HH:mm'}}</td>
+        <!--<td>-->
+            <!--<button class="btn btn-danger" confirmed-click="removeAppointment(appointment.name)"  ng-confirm-click="Sterge rezervarile pentru acest nume??"><i class="icon-trash icon-white"></i> Delete</button>-->
+        <!--</td>-->
+    </tr>
+    </tbody>
+
+</table>
+        <p ng-if="firebaseUser">Signed in user: <strong>{{ firebaseUser.uid }}</strong></p>
+        <p ng-if="error">Error: <strong>{{ error }}</strong></p>
+
+    <button class="btn btn-primary" ng-click="logout()">LogOut</button>
+    <div ng-controller="AppController">
+    <button class="btn btn-primary" ng-click="open_close()">Deschis/Inchis</button>
+    </div>
+</div>

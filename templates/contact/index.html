@@ -1,0 +1,115 @@
+
+<!-- Global site tag (gtag.js) - Google AdWords: 869962716 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-869962716"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-869962716');
+</script>
+
+ <div class="container centerMap">
+<div class="row">
+<div id="map"></div>
+</div>
+</div>
+ <div id="container-fluid">
+     <div class="logo_box col-md-12"><h1 class="h1Contact">High<br/>Class<br/>Studio</h1></div>
+     <div class="main_box col-md-12">
+         <div class="reachUs">
+            <h2>Contactează-ne</span></h2>
+         </div>
+         <ul class="info">
+             <li>
+                 <h3 class="h3Contact">T</h3>
+                 <p>0724 648 748</p>
+             </li>
+             <li>
+                 <h3 class="h3Contact">E</h3>
+                 <p>highclassstudiotm@gmail.com</p>
+             </li>
+             <li>
+                 <h3 class="h3Contact">A</h3>
+                 <p>Ne găsești în Timișoara pe Aleea Cristalului nr. 7, bl. 74 </br> High Class Studio Timișoara.</p>
+             </li>
+             <li>
+                 <h3 class="h3Contact">S</h3>
+                 <p class="social">
+                     <a href="https://www.facebook.com/High-Class-Studio-146179942192256/" class="fb" target="_blank"></a>
+                 </p>
+             </li>
+         </ul>
+     </div>
+ </div>
+ <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+         <div class="modal-content modal-popup">
+             
+             <a class="close-link"><i class="icon_close_alt2"></i></a>
+             <h3 class="white">Dacă dorești să te programezi la o ședință de antrenament, lasă-ne datele tale de contact mai jos și noi te vom contacta în cel mai scurt timp posibil!</h3>
+             <div ng-controller="AppointmentController as appointmentCtrl">
+                 <form name="form" autocomplete="off" novalidate>
+                     <input type="text" name="client" class="form-control form-white" ng-class ="{'emptyInput': (form.client.$invalid && !form.client.$pristine) || (form.client.$touched || form.$submitted) && !form.client.$valid}" placeholder="Nume" ng-model="appointmentCtrl.name" required>
+                     <div ng-show="(form.client.$invalid && !form.client.$pristine) || (form.client.$touched || form.$submitted) && !form.client.$valid" aria-live="assertive"
+                          class="ng-active" aria-hidden="false"> <!---->
+                         <div  ng-message="required" class="message">
+                             Te rugăm să introduci numele.
+                         </div>
+                     </div>
+                     <input type="email" name="email" class="form-control form-white" ng-class ="{'emptyInput': (form.email.$invalid && !form.email.$pristine) || (form.email.$touched || form.$submitted) && !form.email.$valid}" placeholder="Adresa de email" ng-model="appointmentCtrl.email" required>
+                     <div ng-show="(form.email.$invalid && !form.email.$pristine) || (form.email.$touched || form.$submitted) && !form.email.$valid" aria-live="assertive"
+                          class="ng-active" aria-hidden="false"> <!---->
+                         <div  ng-message="required" class="message">
+                             Te rugăm să introduci adresa de email.
+                         </div>
+                     </div>
+                     <input type="text" name="phone" class="form-control form-white" ng-class ="{'emptyInput': (form.phone.$invalid && !form.phone.$pristine) || (form.phone.$touched || form.$submitted) && !form.phone.$valid}" placeholder="Telefon" ng-model="appointmentCtrl.phone" required>
+                     <div ng-show="(form.phone.$invalid && !form.phone.$pristine) || (form.phone.$touched || form.$submitted) && !form.phone.$valid" aria-live="assertive"
+                          class="ng-active" aria-hidden="false"> <!---->
+                         <div  ng-message="required" class="message">
+                             Te rugăm să introduci numărul de telefon.
+                         </div>
+                     </div>
+
+                     <div class="custom-checkbox">
+                         <input type="checkbox" name="terms-of-service" id="cb1" ng-model="isSigned">
+                         <label for="cb1">Am citit și sunt de acord cu <a href="#terms-of-service" target="_blank">nota de informare privind protecția datelor</a></label>
+                     </div>
+                     <div ng-show="(form.terms-of-service.$invalid && !form.terms-of-service.$pristine) || (form.terms-of-service.$touched || form.$submitted) && !isSigned" aria-live="assertive"
+                          class="ng-active" aria-hidden="false"> <!---->
+                         <div  ng-message="required" class="message">
+                             Te rugăm să confirmi că ai citit și ești de acord cu nota de informare privind <br>
+                             protecția datelor.
+                         </div>
+                     </div>
+                     <button type="submit" class="btn btn-submit" ng-click="addAppointments()">Trimite</button>
+                 </form>
+                 <div id="appAlert" class="alert alert-success" ng-if="isAppoint">
+                     <a  class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                     Felicitări<strong> {{firstname}}</strong>! <br/>
+                     Programarea ta a fost înregistrată cu succes. <br/>
+                     În curând vei fi contactat telefonic pentru a confirma data și ora. <br/>
+                     Mulțumim.
+                 </div>
+             </div>
+             <div id="appAlertt" ng-controller="AlertController" uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">
+                 {{alert.msg}}
+             </div>
+         </div>
+     </div>
+ </div>
+<script>
+    function initMap() {
+        var myOptions = {
+            zoom:14,center:new google.maps.LatLng(45.734775,21.247865899999965),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById("map"), myOptions);
+        marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(45.734775, 21.247865899999965)});
+        infowindow = new google.maps.InfoWindow({content:"<div class='mapInfo'><b><div class='mapInfoMarg'>High Class Studio</div></b><div class='mapInfoMarg'>Aleea Cristalului nr. 7, bl. 74 </div> Timisoara</div>" });
+        google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});
+        infowindow.open(map,marker);
+    }
+    initMap();
+</script>

@@ -1,0 +1,48 @@
+.message,
+.ng-active {
+    font-size: 15px;
+    line-height: 16px
+}
+
+.ng-active {
+    color: rgba(0, 0, 0, .54);
+    height: 48px;
+    padding: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .08);
+    white-space: nowrap
+}
+
+.message {
+    color: #ff5252;
+    padding-right: 20px;
+    position: relative;
+    top: 4px;
+    height: 0
+}
+
+.c5e-input-container .c5e-input-error-text::after,
+.c5e-input-container input~div[ng-messages] div[ng-message]::after,
+.c5e-input-container textarea~div[ng-messages] div[ng-message]::after {
+    font-family: 'Material Icons Extended';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'liga';
+    speak: none;
+    text-decoration: none;
+    content: 'warning';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0
+}

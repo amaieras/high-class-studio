@@ -1,0 +1,139 @@
+<!-- Global site tag (gtag.js) - Google AdWords: 869962716 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-869962716"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-869962716');
+</script>
+
+<div class="container alignGallery">
+        <div id="links">
+            <a href="img/gallery/antrenament/001.jpg" title="HCS" data-gallery="">
+                <img src="img/gallery/antrenament/001_small.jpg">
+            </a>
+            <a href="img/gallery/antrenament/002.jpg" title="HCS" data-gallery="">
+                <img src="img/gallery/antrenament/002_small.jpg">
+            </a>
+            <a href="img/gallery/antrenament/003.jpg" title="HCS" data-gallery="">
+                <img src="img/gallery/antrenament/003_small.jpg">
+            </a>
+            <a href="img/gallery/antrenament/004.jpg" title="HCS" data-gallery="">
+                <img src="img/gallery/antrenament/004_small.jpg">
+            </a>
+            <a href="img/gallery/antrenament/009.jpg" title="HCS" data-gallery="">
+                <img src="img/gallery/antrenament/009_small.jpg">
+            </a>
+            <a href="img/gallery/antrenament/011.jpg" title="HCS" data-gallery="">
+                <img src="img/gallery/antrenament/011_small.jpg">
+            </a>
+            <a href="img/gallery/antrenament/005.jpg" title="HCS" data-gallery="">
+                <img src="img/gallery/antrenament/005_small.jpg">
+            </a>
+            <a href="img/gallery/antrenament/006.jpg" title="HCS" data-gallery="">
+                <img src="img/gallery/antrenament/006_small.jpg">
+            </a>
+            <a href="img/gallery/antrenament/007.jpg" title="HCS" data-gallery="">
+                <img src="img/gallery/antrenament/007_small.jpg">
+            </a>
+            <a href="img/gallery/antrenament/008.jpg" title="HCS" data-gallery="">
+                <img src="img/gallery/antrenament/008_small.jpg">
+            </a>
+            <a href="img/gallery/antrenament/010.jpg" title="HCS" data-gallery="">
+                <img src="img/gallery/antrenament/010_small.jpg">
+            </a>
+        </div>
+
+</div>
+<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" style="display: none;">
+    <!-- The container for the modal slides -->
+    <div class="slides" style="width: 192000px;"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title">Album</h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    <div class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true">×</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body next"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
+                    </button>
+                    <button type="button" class="btn btn-primary next">
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content modal-popup">
+
+            <a class="close-link"><i class="icon_close_alt2"></i></a>
+            <h3 class="white">Dacă dorești să te programezi la o ședință de antrenament, lasă-ne datele tale de contact mai jos și noi te vom contacta în cel mai scurt timp posibil!</h3>
+            <div ng-controller="AppointmentController as appointmentCtrl">
+                <form name="form" autocomplete="off" novalidate>
+                    <input type="text" name="client" class="form-control form-white" ng-class ="{'emptyInput': (form.client.$invalid && !form.client.$pristine) || (form.client.$touched || form.$submitted) && !form.client.$valid}" placeholder="Nume" ng-model="appointmentCtrl.name" required>
+                    <div ng-show="(form.client.$invalid && !form.client.$pristine) || (form.client.$touched || form.$submitted) && !form.client.$valid" aria-live="assertive"
+                         class="ng-active" aria-hidden="false"> <!---->
+                        <div  ng-message="required" class="message">
+                            Te rugăm să introduci numele.
+                        </div>
+                    </div>
+                    <input type="email" name="email" class="form-control form-white" ng-class ="{'emptyInput': (form.email.$invalid && !form.email.$pristine) || (form.email.$touched || form.$submitted) && !form.email.$valid}" placeholder="Adresa de email" ng-model="appointmentCtrl.email" required>
+                    <div ng-show="(form.email.$invalid && !form.email.$pristine) || (form.email.$touched || form.$submitted) && !form.email.$valid" aria-live="assertive"
+                         class="ng-active" aria-hidden="false"> <!---->
+                        <div  ng-message="required" class="message">
+                            Te rugăm să introduci adresa de email.
+                        </div>
+                    </div>
+                    <input type="text" name="phone" class="form-control form-white" ng-class ="{'emptyInput': (form.phone.$invalid && !form.phone.$pristine) || (form.phone.$touched || form.$submitted) && !form.phone.$valid}" placeholder="Telefon" ng-model="appointmentCtrl.phone" required>
+                    <div ng-show="(form.phone.$invalid && !form.phone.$pristine) || (form.phone.$touched || form.$submitted) && !form.phone.$valid" aria-live="assertive"
+                         class="ng-active" aria-hidden="false"> <!---->
+                        <div  ng-message="required" class="message">
+                            Te rugăm să introduci numărul de telefon.
+                        </div>
+                    </div>
+
+                    <div class="custom-checkbox">
+                        <input type="checkbox" name="terms-of-service" id="cb1" ng-model="isSigned">
+                        <label for="cb1">Am citit și sunt de acord cu <a href="#terms-of-service" target="_blank">nota de informare privind protecția datelor</a></label>
+                    </div>
+                    <div ng-show="(form.terms-of-service.$invalid && !form.terms-of-service.$pristine) || (form.terms-of-service.$touched || form.$submitted) && !isSigned" aria-live="assertive"
+                         class="ng-active" aria-hidden="false"> <!---->
+                        <div  ng-message="required" class="message">
+                            Te rugăm să confirmi ca ai citit si esti de acord cu nota de informare privind <br>
+                            protecția datelor.
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-submit" ng-click="addAppointments()">Trimite</button>
+                </form>
+                <div id="appAlert" class="alert alert-success" ng-if="isAppoint">
+                    <a  class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    Felicitări<strong> {{firstname}}</strong>! <br/>
+                    Programarea ta a fost înregistrată cu succes. <br/>
+                    În curând vei fi contactat telefonic pentru a confirma data și ora. <br/>
+                    Mulțumim.
+                </div>
+            </div>
+            <div id="appAlertt" ng-controller="AlertController" uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">
+                {{alert.msg}}
+            </div>
+        </div>
+    </div>
+</div>
